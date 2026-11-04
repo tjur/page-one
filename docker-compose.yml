@@ -1,0 +1,8 @@
+services:
+  backend:
+    build: backend
+    container_name: backend
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    environment:
+      - GIN_MODE=${GIN_MODE}
