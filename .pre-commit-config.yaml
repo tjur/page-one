@@ -1,0 +1,23 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v6.0.0
+  hooks:
+    - id: trailing-whitespace
+    - id: end-of-file-fixer
+    - id: check-yaml
+    - id: check-added-large-files
+- repo: local
+  hooks:
+  - id: go-fmt-backend
+    name: go fmt backend
+    entry: bash -c 'cd backend && go fmt ./...'
+    language: system
+    pass_filenames: false
+    files: ^backend/
+
+  - id: go-vet-backend
+    name: go vet backend
+    entry: bash -c 'cd backend && go vet ./...'
+    language: system
+    pass_filenames: false
+    files: ^backend/
